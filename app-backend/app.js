@@ -15,10 +15,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/getmovie', (req, res) => {
-	const movieToSearch =
-		req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.movie
-			? req.body.result.parameters.movie
-			: ''
+	const movieToSearch = req.body.movieName ? req.body.movieName : '';
 
 	const reqUrl = encodeURI(
 		`http://www.omdbapi.com/?t=${movieToSearch}&apikey=${process.env.API_KEY}`
@@ -32,7 +29,7 @@ app.post('/getmovie', (req, res) => {
 			})
 			responseFromAPI.on('end', () => {
 				const movie = JSON.parse(completeResponse)
-
+				//console.log(movie)
 				let dataToSend = movieToSearch
 				dataToSend = `${movie.Title} was released in the year ${movie.Year}. It is directed by ${
 					movie.Director
