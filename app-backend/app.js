@@ -30,14 +30,15 @@ app.post('/getmovie', (req, res) => {
 			responseFromAPI.on('end', () => {
 				const movie = JSON.parse(completeResponse)
 				//console.log(movie)
-				let dataToSend = movieToSearch
-				dataToSend = `${movie.Title} was released in the year ${movie.Year}. It is directed by ${
-					movie.Director
-				} and stars ${movie.Actors}.\n Here some glimpse of the plot: ${movie.Plot}.
-                }`
+				// let dataToSend = movieToSearch
+				let dataToSend = movie
+				// dataToSend = `${movie.Title} was released in the year ${movie.Year}. It is directed by ${
+				// 	movie.Director
+				// } and stars ${movie.Actors}.\n Here some glimpse of the plot: ${movie.Plot}.
+                // }`
 
 				return res.json({
-					fulfillmentText: dataToSend,
+					movie: dataToSend,
 					source: 'getmovie'
 				})
 			})

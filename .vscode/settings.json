@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/1877218e-4dc8-4202-8968-d81ea16b100d/resourceGroups/DefaultResourceGroup-CUS/providers/Microsoft.Web/sites/movie-api-509",
+    "appService.deploySubpath": "app-backend"
+}
