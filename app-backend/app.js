@@ -14,9 +14,8 @@ app.get('/', (req, res) => {
 	res.status(200).send('Server is working.')
 })
 
-app.post('/getmovie', (req, res) => {
-	const movieToSearch = req.body.movieName ? req.body.movieName : '';
-
+app.get('/getmovie', (req, res) => {
+	const movieToSearch = req.query.movieName ? req.query.movieName : '';
 	const reqUrl = encodeURI(
 		`http://www.omdbapi.com/?t=${movieToSearch}&apikey=${process.env.API_KEY}`
 	)
